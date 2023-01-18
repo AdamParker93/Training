@@ -30,7 +30,21 @@ namespace File_and_FileInfo
             //2- Write a program that reads a text file and displays the longest word in the file.
             //
 
+            var path = @"C:\Repos\Training\Working with Files\File and FileInfo\testtextfile.txt";
 
+            var content = File.ReadAllText(path);
+
+            var words = new List<string>(content.Split(' '));
+            var biggestWord = "";
+            foreach (var word in words)
+            {
+                var wordLength = word.Length;
+                if (wordLength > biggestWord.Length)
+                {
+                    biggestWord = word;
+                }
+            }
+            Console.WriteLine(biggestWord);
         }
     }
 }
